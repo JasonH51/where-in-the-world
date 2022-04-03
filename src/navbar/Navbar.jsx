@@ -5,7 +5,10 @@ import './css/navbar.css';
 const Navbar = () => {
   return (
     <div className="navbar-main-div box-shadow">
-      <h4 className="navbar-h4-title">Where in the world?</h4>
+      <div>
+        <h4 className="navbar-h4-title">Where in the world?</h4>
+        <p className="m-0">Front End Mentor Design</p>
+      </div>
       <span>Dark Mode</span>
     </div>
   );
