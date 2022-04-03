@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './css/dashboard.css';
 import {Container, Row, Col} from 'react-bootstrap';
 import Navbar from '../navbar/Navbar';
 import Search from '../search/Search';
+import CountryCard from '../country/CountryCard';
+import {Data} from './../API/CountryDataAPI';
 
 const Dashboard = () => {
+  const {random} = useContext(Data);
   return (
     <Container fluid className={`dashboard-main-container `}>
       <Row>
@@ -18,7 +21,11 @@ const Dashboard = () => {
             <Search />
           </Row>
           <Row>
-            <Col>map items here</Col>
+            {random.map(country => (
+              <Col>
+                <CountryCard country={country} />
+              </Col>
+            ))}
           </Row>
         </Col>
       </Row>
