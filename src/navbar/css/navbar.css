@@ -1,0 +1,10 @@
+.navbar-main-div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 60px;
+}
+
+.navbar-h4-title {
+  font-weight: bold;
+}
