@@ -9,27 +9,20 @@ import {Data} from './../API/CountryDataAPI';
 const Dashboard = () => {
   const {random} = useContext(Data);
   return (
-    <Container fluid className={`dashboard-main-container `}>
-      <Row>
-        <Col>
-          <Navbar />
-        </Col>
-      </Row>
-      <Row>
-        <Col className="dashboard-main-content-container">
-          <Row>
-            <Search />
-          </Row>
-          <Row>
-            {random.map(country => (
-              <Col>
-                <CountryCard country={country} />
-              </Col>
-            ))}
-          </Row>
-        </Col>
-      </Row>
-    </Container>
+    <Row>
+      <Col className="dashboard-main-content-container">
+        <Row>
+          <Search />
+        </Row>
+        <Row>
+          {random.map((country, idx) => (
+            <Col key={idx} className="mt-3" xs={12} sm={6} md={3}>
+              <CountryCard country={country} />
+            </Col>
+          ))}
+        </Row>
+      </Col>
+    </Row>
   );
 };
 

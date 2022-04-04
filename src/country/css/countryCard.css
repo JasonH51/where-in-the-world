@@ -6,3 +6,7 @@
 .fw-normal {
   font-weight: normal;
 }
+
+.country-card-clickable {
+  cursor: pointer;
+}
