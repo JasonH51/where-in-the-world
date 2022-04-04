@@ -11,7 +11,7 @@ const Search = () => {
         <Col md={5}>
           <SearchInput />
         </Col>
-        <Col md={2}>
+        <Col md={3}>
           <FilterByRegion />
         </Col>
       </Row>

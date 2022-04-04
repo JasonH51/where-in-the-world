@@ -8,6 +8,7 @@ const CountryDataAPI = ({children}) => {
   const [countries, setCountries] = useState([]);
   const [region, setRegion] = useState('');
   const [random, setRandom] = useState([]);
+  const [selected, setSelected] = useState({});
   //   console.log(countries);
 
   const getAll = () => {
@@ -47,7 +48,9 @@ const CountryDataAPI = ({children}) => {
         region,
         setRegion,
         random,
-        setRandom
+        setRandom,
+        selected,
+        setSelected
       }}
     >
       {children}

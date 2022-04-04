@@ -2,11 +2,7 @@
   padding: 0 !important;
 }
 
-.dashboard-main-container {
-  background-color: hsl(0, 0%, 98%);
-  height: 100vh;
-  overflow-x: hidden;
-}
+
 
 .dashboard-main-content-container {
   padding: 40px 60px !important;
