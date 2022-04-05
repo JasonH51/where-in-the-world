@@ -9,6 +9,8 @@ const CountryDataAPI = ({children}) => {
   const [region, setRegion] = useState('');
   const [random, setRandom] = useState([]);
   const [selected, setSelected] = useState({});
+  const [borders, setBorders] = useState([]);
+
   //   console.log(countries);
 
   const getAll = () => {
@@ -19,6 +21,11 @@ const CountryDataAPI = ({children}) => {
 
   const getByRegion = () => {
     axios.get(`https://restcountries.com/v2/continent/${region}`).then(res => console.log(res));
+  };
+
+  const getBorders = async code => {
+    const border = await axios.get(`https://restcountries.com/v2/alpha?codes=${code}`);
+    return border;
   };
 
   useEffect(() => {
@@ -50,7 +57,10 @@ const CountryDataAPI = ({children}) => {
         random,
         setRandom,
         selected,
-        setSelected
+        setSelected,
+        borders,
+        setBorders,
+        getBorders
       }}
     >
       {children}
