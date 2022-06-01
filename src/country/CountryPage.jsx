@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {Row, Col} from 'react-bootstrap';
 import {Data} from '../API/CountryDataAPI';
 import './css/countryPage.css';
@@ -10,7 +10,7 @@ const CountryPage = () => {
   useEffect(() => {
     try {
       if (selected?.borders.length) {
-        let border = selected.borders.join(',');
+        let border = selected?.borders.join(',');
         getBorders(border).then(res => setBorders(res.data));
         console.log(border);
       }

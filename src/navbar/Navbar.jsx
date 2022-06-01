@@ -7,7 +7,7 @@ const Navbar = () => {
     <div className="navbar-main-div box-shadow">
       <div>
         <h4 className="navbar-h4-title">Where in the world?</h4>
-        <p className="m-0">Front End Mentor Design</p>
+        <p className="m-0">Front End Mentor Design - Advanced</p>
       </div>
       <span>Dark Mode</span>
     </div>

@@ -2,8 +2,11 @@
   padding: 0 !important;
 }
 
-
-
 .dashboard-main-content-container {
   padding: 40px 60px !important;
+}
+
+.country_card_container {
+  display: flex;
+  justify-content: space-between;
 }

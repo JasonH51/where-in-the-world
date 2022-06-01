@@ -8,15 +8,16 @@ import {Data} from './../API/CountryDataAPI';
 
 const Dashboard = () => {
   const {random} = useContext(Data);
+  console.log(random);
   return (
     <Row>
       <Col className="dashboard-main-content-container">
         <Row>
           <Search />
         </Row>
-        <Row>
+        <Row className="country_card_container">
           {random.map((country, idx) => (
-            <Col key={idx} className="mt-3" xs={12} sm={6} md={3}>
+            <Col className="mt-5" key={idx} xs={12} sm={6} md={3}>
               <CountryCard country={country} />
             </Col>
           ))}

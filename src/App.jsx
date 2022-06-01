@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <CountryDataAPI>
-        <Container fluid className={`app-main-container `}>
+        <Container fluid className="app-main-container ">
           <Row>
             <Col>
               <Navbar />
@@ -19,7 +19,7 @@ function App() {
           </Row>
           <Router>
             <Dashboard path="/" />
-            <CountryPage path={`/country`} />
+            <CountryPage path="/country" />
           </Router>
         </Container>
       </CountryDataAPI>
