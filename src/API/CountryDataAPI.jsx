@@ -24,6 +24,11 @@ const CountryDataAPI = ({children}) => {
     axios.get(`https://restcountries.com/v2/continent/${region}`).then(res => console.log(res));
   };
 
+  const getBorders = async code => {
+    const border = await axios.get(`https://restcountries.com/v2/alpha?codes=${code}`);
+    return border;
+  };
+
   useEffect(() => {
     if (countries.length) {
       let newArray = [];
@@ -50,7 +55,10 @@ const CountryDataAPI = ({children}) => {
         random,
         setRandom,
         selected,
-        setSelected
+        setSelected,
+        borders,
+        setBorders,
+        getBorders
       }}
     >
       {children}

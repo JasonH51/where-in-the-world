@@ -2,6 +2,7 @@ import React, {useContext, useEffect} from 'react';
 import {Row, Col} from 'react-bootstrap';
 import {Data} from '../API/CountryDataAPI';
 import './css/countryPage.css';
+import axios from 'axios';
 
 const CountryPage = () => {
   const {selected, getBorders, borders, setBorders} = useContext(Data);
@@ -57,7 +58,7 @@ const CountryPage = () => {
               </Row>
               <Row>
                 <p>
-                  Sub Region: <span></span>
+                  Sub Region: <span>{selected.subregion}</span>
                 </p>
               </Row>
               <Row>
@@ -69,23 +70,31 @@ const CountryPage = () => {
             <Col>
               <Row>
                 <p>
-                  Top Level Domain: <span></span>
+                  Top Level Domain: <span>{selected?.topLevelDomain}</span>
                 </p>
               </Row>
               <Row>
                 <p>
-                  Currencies: <span></span>
+                  Currencies: <span>{selected.currencies[0].code}</span>
                 </p>
               </Row>
               <Row>
                 <p>
-                  Languages: <span></span>
+                  Languages:{' '}
+                  <span>{selected.languages.map(language => language.name).join(', ')}</span>
                 </p>
               </Row>
             </Col>
           </Row>
           <Row>
-            <Col>border countries</Col>
+            <Col>
+              <p>
+                Border Countries:{' '}
+                {borders.map((el, idx) => (
+                  <span key={idx}>{el.name}, </span>
+                ))}{' '}
+              </p>
+            </Col>
           </Row>
         </Col>
       </Row>
