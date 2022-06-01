@@ -9,12 +9,15 @@ const CountryDataAPI = ({children}) => {
   const [region, setRegion] = useState('');
   const [random, setRandom] = useState([]);
   const [selected, setSelected] = useState({});
-  //   console.log(countries);
+  const [borders, setBorders] = useState([]);
 
   const getAll = () => {
-    axios.get('https://restcountries.com/v2/all').then(res => {
-      setCountries(res.data);
-    });
+    axios
+      .get('https://restcountries.com/v2/all')
+      .then(res => {
+        setCountries(res.data);
+      })
+      .catch(err => console.log(err));
   };
 
   const getByRegion = () => {
@@ -23,15 +26,12 @@ const CountryDataAPI = ({children}) => {
 
   useEffect(() => {
     if (countries.length) {
-      let numbers = [];
       let newArray = [];
       for (let i = 0; i <= 7; i++) {
-        const randomNumber = Number(Math.floor(Math.random() * 99));
-        numbers.push(randomNumber);
+        const randomNumber = Number(Math.floor(Math.random() * 249));
+        newArray.push(countries[randomNumber]);
       }
-      numbers.map(num => {
-        newArray.push(countries[num]);
-      });
+
       setRandom(newArray);
     }
   }, [countries]);

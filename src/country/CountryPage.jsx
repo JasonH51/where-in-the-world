@@ -1,11 +1,26 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {Row, Col} from 'react-bootstrap';
 import {Data} from '../API/CountryDataAPI';
 import './css/countryPage.css';
 
 const CountryPage = () => {
-  const {selected} = useContext(Data);
-  console.log(selected);
+  const {selected, getBorders, borders, setBorders} = useContext(Data);
+
+  useEffect(() => {
+    try {
+      if (selected?.borders.length) {
+        let border = selected?.borders.join(',');
+        getBorders(border).then(res => setBorders(res.data));
+        console.log(border);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }, [selected]);
+
+  console.log(selected?.borders);
+  console.log(borders.data);
+
   return (
     <Row>
       <Row>
