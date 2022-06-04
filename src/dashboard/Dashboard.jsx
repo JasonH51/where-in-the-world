@@ -17,7 +17,7 @@ const Dashboard = () => {
         </Row>
         <Row className="country_card_container">
           {random.map((country, idx) => (
-            <Col className="mt-5" key={idx} xs={12} sm={6} md={3}>
+            <Col className="mt-5 " key={idx} xs={12} sm={6} md={3}>
               <CountryCard country={country} />
             </Col>
           ))}

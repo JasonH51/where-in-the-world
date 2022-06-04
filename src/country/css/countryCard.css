@@ -9,4 +9,5 @@
 
 .country-card-clickable {
   cursor: pointer;
+  max-width: 320px !important;
 }
