@@ -5,11 +5,12 @@ export const Data = createContext();
 const Provider = Data.Provider;
 
 const CountryDataAPI = ({children}) => {
-  const [countries, setCountries] = useState([]);
-  const [region, setRegion] = useState('');
-  const [random, setRandom] = useState([]);
   const [selected, setSelected] = useState({});
+  const [countries, setCountries] = useState([]);
+  const [random, setRandom] = useState([]);
   const [borders, setBorders] = useState([]);
+  const [reg, setReg] = useState([]);
+  const [search, setSearch] = useState([]);
 
   const getAll = () => {
     axios
@@ -20,8 +21,11 @@ const CountryDataAPI = ({children}) => {
       .catch(err => console.log(err));
   };
 
-  const getByRegion = () => {
-    axios.get(`https://restcountries.com/v2/continent/${region}`).then(res => console.log(res));
+  const getByRegion = async region => {
+    await axios
+      .get(`https://restcountries.com/v2/region/${region}`)
+      .then(res => setReg(res.data))
+      .catch(err => console.log(err));
   };
 
   const getBorders = async code => {
@@ -48,17 +52,20 @@ const CountryDataAPI = ({children}) => {
   return (
     <Provider
       value={{
+        countries,
         getAll,
         getByRegion,
-        region,
-        setRegion,
         random,
         setRandom,
         selected,
         setSelected,
         borders,
         setBorders,
-        getBorders
+        getBorders,
+        reg,
+        setReg,
+        search,
+        setSearch
       }}
     >
       {children}

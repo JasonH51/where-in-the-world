@@ -7,7 +7,6 @@ const Navbar = () => {
       <div>
         <h4 className="navbar-h4-title">Where in the world?</h4>
       </div>
-      <span>Dark Mode</span>
     </nav>
   );
 };
