@@ -18,7 +18,7 @@ const CountryCard = ({country}) => {
         <Card.Img variant="top" style={{height: '150px'}} src={country.flags.png} />
         <Card.Body className="p-4">
           <Card.Title className="mb-4">
-            <b>{country.nativeName}</b>
+            <b>{country.name}</b>
           </Card.Title>
           <div>
             <h5 className="country-card-subtitles">

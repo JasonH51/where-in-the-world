@@ -1,10 +1,8 @@
 import React, {useContext} from 'react';
 import '../css/filterByRegion.css';
-import {Data} from '../../API/CountryDataAPI';
 
-const FilterByRegion = () => {
-  const {region, setRegion} = useContext(Data);
-  const countries = ['Africa', 'America', 'Asia', 'Europe', 'Oceania'];
+const FilterByRegion = ({region, setRegion}) => {
+  const countries = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
   return (
     <select
       onChange={e => setRegion(e.target.value)}

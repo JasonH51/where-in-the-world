@@ -1,7 +1,7 @@
 import React from 'react';
 import '../css/searchInput.css';
 
-const SearchInput = () => {
+const SearchInput = ({searchInput, setSearchInput}) => {
   return (
     <div className="search-input-container">
       <img
@@ -13,6 +13,8 @@ const SearchInput = () => {
         type="search"
         placeholder="Search for a country..."
         className="search-input  box-shadow"
+        value={searchInput}
+        onChange={e => setSearchInput(e.target.value)}
       />
     </div>
   );

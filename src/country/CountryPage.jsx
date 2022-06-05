@@ -38,7 +38,11 @@ const CountryPage = () => {
             <img src={selected.flags.svg} alt="countries flag" className="flag-img" />
           </div>
         </Col>
-        <Col xs={12} md={6} className="d-flex flex-column justify-content-center pt-5 pt-md-0 ps-md-5">
+        <Col
+          xs={12}
+          md={6}
+          className="d-flex flex-column justify-content-center pt-5 pt-md-0 ps-md-5"
+        >
           <Row className="mb-3">
             <Col>
               <h1 className="fw-bold">{selected.name}</h1>
@@ -93,7 +97,7 @@ const CountryPage = () => {
           </Row>
           <Row className="mt-5">
             <Col>
-              <p className="country_page_labels">Border Countries:{'   '}</p>
+              <p className="country_page_labels">Border Countries: </p>
               <div className="country_page_border_container">
                 {borders.map((el, idx) => (
                   <span
@@ -103,7 +107,7 @@ const CountryPage = () => {
                   >
                     {el.name}
                   </span>
-                ))}{' '}
+                ))}
               </div>
             </Col>
           </Row>
