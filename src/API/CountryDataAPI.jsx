@@ -21,8 +21,8 @@ const CountryDataAPI = ({children}) => {
       .catch(err => console.log(err));
   };
 
-  const getByRegion = async region => {
-    await axios
+  const getByRegion = region => {
+    axios
       .get(`https://restcountries.com/v2/region/${region}`)
       .then(res => setReg(res.data))
       .catch(err => console.log(err));

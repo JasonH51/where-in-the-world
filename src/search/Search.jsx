@@ -6,22 +6,32 @@ import './css/search.css';
 import {Data} from '../API/CountryDataAPI';
 
 const Search = () => {
-  const {countries, setSearch, setRandom, reg, setReg} = useContext(Data);
+  const {countries, setSearch, setRandom, setReg} = useContext(Data);
   const [searchInput, setSearchInput] = useState('');
   const [region, setRegion] = useState('');
 
   useEffect(() => {
     if (searchInput.length) {
-      setSearch(
-        countries.filter(el => {
-          const length = searchInput.length;
-          const firstLetters = el.name.slice(0, length).toLowerCase();
-          return firstLetters.includes(searchInput.toLowerCase());
-        })
-      );
+      setSearch(prev => {
+        if (prev.length && prev.length < searchInput.length) {
+          return prev.filter(el => {
+            const length = searchInput.length;
+            const firstLetters = el.name.slice(0, length).toLowerCase();
+            return firstLetters.includes(searchInput.toLowerCase());
+          });
+        } else {
+          console.log(prev);
+          return countries.filter(el => {
+            const length = searchInput.length;
+            const firstLetters = el.name.slice(0, length).toLowerCase();
+            return firstLetters.includes(searchInput.toLowerCase());
+          });
+        }
+      });
       setRandom([]);
       setReg([]);
     }
+    /* eslint-disable */
   }, [searchInput]);
 
   useEffect(() => {

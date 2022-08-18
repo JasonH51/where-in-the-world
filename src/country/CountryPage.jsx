@@ -19,6 +19,7 @@ const CountryPage = () => {
     } catch (error) {
       console.log(error);
     }
+    /* eslint-disable */
   }, [selected]);
 
   console.log(borders);
